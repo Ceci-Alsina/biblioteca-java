@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: head">
+</head>
+<body>
+  <nav th:replace="/fragments/navbar"></nav>
+  <header>
+    <div class="container">
+      <h2></h2>
+    </div>
+  </header>
+
+  <div class="container">
+    <form class="formulario" th:action="@{/autor/registro}" method="POST">
+      <div class="form-group my-3">
+        <label class="mb-2">Cargar Autores</label>
+        <input type="text" class="form-control" name="nombre" placeholder="nombre del autor">
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3 botones">Submit</button>
+    </form>
+    <div th:if="${exito}!=null" class="card text-white bg-succes mb-3 mt-3 mensajeExito">
+      <div class="card-body">
+        <h5>Exito!</h5>
+        <p class="card-text" th:text="${exito}"></p>
+      </div>
+    </div>
+    <div th:if="${error}!=null" class="card text-white bg-succes mb-3 mt-3 mensajeError">
+      <div class="card-body">
+        <h5>Error 👎</h5>
+      </div>
+    </div>
+    
+    <section class="text-center container">
+      <div class="row mt-3">
+        <div class="divVolver">
+          <a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+
+</html>

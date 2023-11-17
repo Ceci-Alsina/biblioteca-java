@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<html lang="en">
+
+<head th:replace="/fragments/head :: head">
+</head>
+
+<body>
+  <nav th:replace="/fragments/navbar"></nav>
+
+  <div th:if="${error != null}" class="card text-white bg-danger  mb-3 mensajeError">
+    <div class="card-body">
+      <h5 class="card-title">Error 👎</h5>
+      <p class="card-text" th:text="${error}"></p>
+    </div>
+  </div>
+
+  <div th:if="${exito != null}" class="card text-white bg-succes mb-3 mt-3 mensajeExito">
+    <div class="card-body">
+      <h5 class="card-title">Exito</h5>
+      <p class="card-text" th:text="${exito}"></p>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+
+    <form class="formulario" th:action="@{/registro}" method="POST" enctype="multipart/form-data">
+      <div>
+        <h3>Completa con tus datos para registrarte</h3>
+      </div>
+      <!-- 2 columnas con text input p/nombre y con email input p/Email -->
+      <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+            <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Nombre"
+              th:value="${nombre}" />
+            <label class="form-label">Ingrese su nombre</label>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-outline">
+            <input type="email" id="email" class="form-control" name="email" placeholder="email" th:value="${email}" />
+            <label class="form-label"> Ingrese su @email</label>
+          </div>
+        </div>
+      </div>
+      <!-- Imagen input-->
+      <div class="form-outline mb-4">
+        <input type="file" id="archivo" class="form-control" name="archivo" />
+        <label class="form-label">Adjunte el archivo de la imagen</label>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="password" class="form-control" name="password" placeholder="password"
+          th:value="${password}" />
+        <label class="form-label">Mínimo 6 dígitos</label>
+      </div>
+
+      <!-- Password2 input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="password2" class="form-control" name="password2" placeholder="password2"
+          th:value="${password2}" />
+        <label class="form-label">Repita la password ingresada</label>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Registrarme</button>
+
+    </form>
+
+    <section class="text-center container">
+      <div class="row mt-3">
+        <div class="divVolver">
+          <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+
+</html>

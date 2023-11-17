@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: head">
+</head>
+
+<body>
+    <nav th:replace="/fragments/navbar"></nav>
+    <div class="container-fluid m-5 contenedor">
+        <form class="formulario" th:action="@{/perfil/__${usuario.idUsuario}__}" method="POST"
+            enctype="multipart/form-data">
+            
+            <input type="hidden" th:value="${idUsuario}" name="idUsuario">
+
+            <div class="form-group my-3">
+                <h3 class="card-text">Editar usuario </h3>
+            </div>
+
+            <div class="form-group my-3">
+                <input type="text" class="form-control" name="nombre" th:value="${usuario.nombre}" placeholder="nombre">
+            </div>
+            <div class="form-group my-3">
+                <input type="email" class="form-control" name="email" th:value="${usuario.email}" placeholder="email">
+            </div>
+            <div class="form-group my-3">
+                <input type="file" class="form-control" name="archivo" placeholder="adjunte el archivo">
+            </div>
+            <div class="form-group my-3">
+                <input type="password" class="form-control" name="password" placeholder="password">
+            </div>
+            <div class="form-group my-3">
+                <input type="password" class="form-control" name="password2" placeholder="repita la password">
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3 botones">Actualizar</button>
+        </form>
+        <section class="text-center container">
+            <div class="row mt-3">
+                <div class="divVolver">
+                    <a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+</body>
+
+</html>

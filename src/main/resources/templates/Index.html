@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en">
+
+<head th:replace="/fragments/head :: head"></head>
+
+<body style="background-color:white">
+    <nav th:replace="/fragments/navbar"></nav>
+
+    <div class="container">
+        <div class="container mt-3">
+            <h3>Base de datos de libros</h3>
+            <p>Explora nuestro mundo de literatura en general y descubre historias que te transportarán a lugares
+                inimaginables.</p>
+        </div>
+    </div>
+    <header>
+        <div class="container">
+            <h5><img class="rounded" src="/img/libros1_2.png" alt="Img biblioteca"></h5>
+        </div>
+    </header>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-body-secondary">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">© 2023 Cecilia</font>
+                    </font>
+                </span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#twitter"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+
+
+</html>

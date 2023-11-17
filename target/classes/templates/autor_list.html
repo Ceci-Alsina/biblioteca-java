@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="/fragments/head :: head">
+</head>
+
+<body>
+    <nav th:replace="/fragments/navbar"></nav>
+   
+    <div class="container m-5">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id del autor</th>
+                    <th scope="col">Nombre del autor</th>
+                    <th scope="col" sec:authorize="hasRole('ADMIN')">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody th:each="autor:${autores}">
+                <tr>
+                    <th scope="row" th:text="${autor.idAutor}"></th>
+                    <td th:text="${autor.nombre}"></td>
+                    <td>
+                        <a sec:authorize="hasRole('ADMIN')" th:href="@{/autor/modificar/__${autor.idAutor}__}"><i class="fas fa-feather-alt"></i> Modificar
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div th:if="${exito}!=null" class="card text-white bg-succes mb-3 mt-3 mensajeExito">
+            <div class="card-body">
+                <h5>Exito!</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+
+        <div th:if="${error}!=null" class="card text-white bg-succes mb-3 mt-3 mensajeError">
+            <div class="card-body">
+                <h5>Error 👎</h5>
+            </div>
+        </div>
+
+        <section class="text-center container">
+            <div class="row mt-3">
+                <div class="divVolver">
+                    <a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

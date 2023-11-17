@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: head">
+</head>
+
+<body>
+    <nav th:replace="/fragments/navbar"></nav>
+    <header>
+        <div class="container">
+          <h2></h2>
+        </div>
+      </header>
+
+
+
+    <div class="container">
+        <form class="formulario" action="/libro/registro" method="POST">
+
+            <div th:if="${error != null}" class="card text-white bg-danger  mb-3 mensajeError">
+                <div class="card-body">
+                    <h5 class="card-title">Error 👎</h5>
+                    <p class="card-text" th:text="${error}"></p>
+                </div>
+            </div>
+
+            <div th:if="${exito != null}" class="card text-white bg-succes mb-3 mt-3 mensajeExito">
+                <div class="card-body">
+                    <h5 class="card-title">Exito</h5>
+                    <p class="card-text" th:text="${exito}"></p>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label class="mb-2">Cargar ISBN</label>
+                <input type="text" class="form-control" name="isbn" placeholder="ISBN">
+            </div>
+
+            <div class="form-group my-3">
+                <label class="mb-2">Cargar título</label>
+                <input type="text" class="form-control" name="titulo" placeholder="Título del libro">
+            </div>
+
+            <div class="form-group my-3">
+                <label class="mb-2">Cargar cantidad de ejmplares</label>
+                <input type="text" class="form-control" name="ejemplares" placeholder="Ejemplares">
+            </div>
+
+            <div class="form-group my-3">
+                <select name="idAutor">
+                    <option>Seleccionar autor</option>
+                    <option th:each="autor: ${autores}" th:value="${autor.idAutor}" th:text="${autor.nombre}">
+                    </option>
+                </select>
+
+            </div>
+            <div class="form-group my-3">
+            <select name="idEditorial">
+                <option>Seleccionar editorial</option>
+                <option th:each="editorial: ${editoriales}" th:value="${editorial.idEditorial}"
+                    th:text="${editorial.nombre}"></option>
+            </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3 botones">Guardar</button>
+    </form>
+
+    <section class=" text-center container">
+        <div class="row mt-3">
+            <div class="divVolver">
+                <a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+            </div>
+        </div>
+
+    </section>
+    </div>
+    
+    
+</body>
+
+</html>

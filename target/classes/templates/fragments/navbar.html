@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <div class="container-fluid">
+        <h1> <img class="rounded-circle" src="/img/bibliotecaportadaredux3.png" alt="Img biblioteca">Biblioteca</h1>
+        <ul class="nav nav-tabs">
+
+            <li class="nav-item">
+
+            </li>
+            <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#"
+                    aria-expanded="false">Libros
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" sec:authorize="hasRole('ADMIN')" th:href="@{/libro/registrar}">Cargar libros</a></li>
+                    <li><a class="dropdown-item" th:href="@{/libro/lista}">Listar libros</a></li>
+                </ul>
+
+            </li>
+
+            <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#"
+                    aria-expanded="false">Autores
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" sec:authorize="hasRole('ADMIN')" th:href="@{/autor/registrar}">Cargar Autor</a></li>
+                    <li><a class="dropdown-item" th:href="@{/autor/lista}">Listar Autores</a></li>
+                </ul>
+
+            </li>
+
+            <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#"
+                    aria-expanded="false">Editoriales
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" sec:authorize="hasRole('ADMIN')" th:href="@{/editorial/registrar}">Cargar editorial</a></li>
+                    <li><a class="dropdown-item" th:href="@{/editorial/lista}">Listar editorial</a></li>
+                </ul>
+
+            </li>
+            <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#"
+                    aria-expanded="false">Perfil
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <li><a class="dropdown-item" th:href="@{/perfil}">Editar perfil</a></li>               
+                    
+                    <li><a class="dropdown-item" th:href="@{/logout}">Cerrar sesión</a></li>
+
+                </ul>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:if="${session.usuariosession == null}" href="/registrar" id="navbarDropdown" role="button" 
+                aria-expanded="false">
+                    Registrate!
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " th:if="${session.usuariosession == null}" href="/login" id="navbarDropdown" role="button" 
+                aria-expanded="false">
+                    LOGIN!
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
